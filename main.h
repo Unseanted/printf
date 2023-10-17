@@ -1,5 +1,5 @@
 #ifndef _PRINT_H
-#define _PRINT__H
+#define _PRINT_H
 
 #include <stdarg.h>
 #include <stdio.h>
@@ -12,10 +12,10 @@
 
 #define NULL_STRING "(null)"
 
-#define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+#define PARAMS_INIT {0, 0, 0, 0, 0, 0, 0, 0, 0}
 
-#define CONVERT_LOWERCASE	1
-#define CONVERT_UNSIGNED	2
+#define CONVERT_LOWERCASE   1
+#define CONVERT_UNSIGNED    2
 
 /**
 * struct parameters - parameters struct
@@ -30,30 +30,21 @@
 * @h_modifier: on if h_modifier specified
 * @l_modifier: on if l_modifier is specified
 */
-
 typedef struct parameters
 {
-	unsigned int unsign		: 1;
-
-	unsigned int plus_flag		: 1;
-	unsigned int space_flag		: 1;
-	unsigned int hashtag_flag	: 1;
-	unsigned int zero_flag		: 1;
-	unsigned int minus_flag		: 1;
-
-	unsigned int h_modifier		: 1;
-	unsigned int l_modifier		: 1;
+	unsigned int unsign     : 1;
+	unsigned int plus_flag  : 1;
+	unsigned int space_flag : 1;
+	unsigned int hashtag_flag : 1;
+	unsigned int zero_flag  : 1;
+	unsigned int minus_flag : 1;
+	unsigned int h_modifier : 1;
+	unsigned int l_modifier : 1;
 } params_t;
-
-/**
-* struct specifier - struct toen
-* @specifier: format token
-* @f: the function associated
-*/
 
 typedef struct specifier
 {
-	char *specifier;
+	const char *specifier;
 	int (*f)(va_list, params_t *);
 } specifier_t;
 
@@ -86,7 +77,6 @@ int get_modifier(char *s, params_t *params);
 char *get_width(char *s, params_t *params, va_list ap);
 
 void init_params(params_t *params, va_list ap);
-char *get_precision(char *p, params_t *params, va_list ap);
 char *get_precision(char *p, params_t *params, va_list ap);
 
 int _isdigit(int c);

@@ -75,7 +75,7 @@ int print_binary(va_list ap, params_t *params)
 	return (c += print_number(str, params));
 }
 
-#include "main.h"
+
 /**
 * print_octal - function name to print unsigned octal numbers
 * @ap: the argument pointer
